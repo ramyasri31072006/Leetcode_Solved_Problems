@@ -30,20 +30,20 @@ public:
 
         for (int i = start; i < s.size(); i++) {
 
-            // We only remove parentheses
+            
             if (s[i] != '(' && s[i] != ')')
                 continue;
 
-            // Skip duplicate removal at the same recursion level
+           
             if (i > start && s[i] == s[i - 1])
                 continue;
 
             string temp = s;
 
-            // Remove character at index i
+           
             temp.erase(i, 1);
 
-            // Start again from i because characters shifted left
+           
             fun(temp, i, removalsLeft - 1, ans);
         }
     }
