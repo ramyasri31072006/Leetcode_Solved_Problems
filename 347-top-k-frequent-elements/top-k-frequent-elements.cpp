@@ -9,17 +9,18 @@ public:
             m[nums[i]]++;
         }
 
-        vector<pair<int,int>>v;
+        priority_queue<pair<int,int>>pq;
 
         for(auto i : m){
-            v.push_back({i.second,i.first});
+            pq.push({i.second,i.first});
         }
 
-        sort(v.begin(),v.end(),greater<pair<int,int>>());
+        
 
         vector<int>ans;
         for(int i = 0; i < k; i++){
-            ans.push_back(v[i].second);
+            ans.push_back(pq.top().second);
+            pq.pop();
         }
 
         return ans;
